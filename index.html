@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="bg" style="background-image: url(west.jpg); height: 1000px; width: 100%; background-size: cover; display: block;">
+		<h1 class="score innerHTML ml-5" style="display: block;">0</h1>
+		<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 20%; margin-top: 19%; opacity:1 ">
+		<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 60%; margin-top: 16%; opacity:1">
+		<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 70%; margin-top: 20%; opacity:1">
+		<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 10%; margin-top: 12%; opacity:1">
+		<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 40%; margin-top: 13%; opacity:1">
+		<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 80%; margin-top: 8%;  opacity:1">
+
+		<img class="enemy2" src="cowboy.png" alt="" style="position: absolute; width: 5%; margin-left: 10%; margin-top: 30%; opacity:1">
+		<img class="enemy2" src="cowboy.png" alt="" style="position: absolute; width: 5%; margin-left: 40%; margin-top: 30%; opacity:1">
+		<img class="enemy2" src="cowboy.png" alt="" style="position: absolute; width: 5%; margin-left: 60%; margin-top: 30%; opacity:1">
+		<img class="enemy2" src="cowboy.png" alt="" style="position: absolute; width: 5%; margin-left: 30%; margin-top: 24%; opacity:1">
+	
+		<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 0%; margin-top: 20%; opacity:1">
+		<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 25%; margin-top: 10%; opacity:1">
+		<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 50%; margin-top: 24%; opacity:1">
+		<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 70%; margin-top: 35%; opacity:1">
+		<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 90%; margin-top: 20%; opacity:1">
+		
+	</div>
+	
+		<script>
+		let enemy1 = document.querySelectorAll(".enemy1");
+		let enemy2 = document.querySelectorAll(".enemy2");
+		let enemy3 = document.querySelectorAll(".enemy3");
+		let people = document.querySelectorAll("people");
+		let score = 0;
+		let x = function(arg){
+			score = score+arg
+			document.querySelector(".score").innerHTML = score;
+		}
+		let first = function(){
+			if (score >=70){
+				alert("Вы выиграли")
+			}
+			else{
+				alert("Вы проиграли")
+			}
+			for(let index3 = 0; index3<6; index3 = index3 + 1){
+				enemy1[index3].style.display = "none"
+			}
+			for(let index4 = 0; index4<4; index4 = index4 + 1){
+				enemy2[index4].style.display = "none"
+			}
+			for(let index5 = 0; index5<5; index5 = index5 + 1){
+				enemy3[index5].style.display = "none"
+			}
+			document.querySelector(".bg").style.display = "none"
+		}
+		setTimeout(first,6000)
+		for(let index = 0; index<6; index = index + 1){
+			enemy1[index].onclick = function (){
+				enemy1[index].style.display = "none"
+				x(10)
+			}
+		}
+		for(let index1 = 0; index1<4; index1 = index1 + 1){
+			enemy2[index1].onclick = function (){
+				enemy2[index1].style.display = "none"
+				x(30)
+			}
+		}
+		for(let index2 = 0; index2<5; index2 = index2 + 1){
+			enemy3[index2].onclick = function (){
+				enemy3[index2].style.display = "none"
+				x(20)
+			}
+		}
+	</script>
+</body>
